@@ -1,0 +1,30 @@
+{% extends 'admin/ahome.html' %}
+{% block content %} <br><br><br>
+<body style="background-image:url(static/images/admin.jpg); background-size:cover">
+
+      <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6 col-md-6">
+          <h1 style="text-align: center;color: blueviolet;">SALES DETAILS</h1><br>
+          <table class="table table-bordered table-hover table-danger">
+            <tr>
+                <th>BILL</th>
+                <th>DATE</th>
+                <th>CUSTOMER NAME</th>
+                <th>AMOUNT</th>
+            </tr>
+            {% for i in b %}
+            <tr>
+                <td>{{i.0}}</td>
+                <td>{{i.1}}</td>
+                <td>{{i.2}}</td>
+                <td>{{i.3}}</td>
+            </tr>
+            {% endfor %}
+            </table>
+            <div class="col-lg-3"></div>
+
+        </div>
+      </div>
+</body>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'admin/ahome.html' %}
+{% block content %}
+<style>
+    .main-block {
+      max-width: 380px; 
+      min-height: 200px; 
+      padding: 10px 0;
+      margin: auto;
+      border-radius: 5px; 
+      border: solid 1px #ccc;
+      box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+      background: #69f0b8; 
+      }
+      form {
+      margin: 0 30px;
+      }
+</style>
+<body style="background-image:url(static/images/stock.jpg); background-size:cover">
+    <U><h1 style="text-align: center;color: blueviolet;">PURCHASE DETAILS</h1><br></U>
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-2"><br>
+        <div class="main-block" >
+        <h4 class="text-center">Select Date</h4>
+        <form method="post">
+            {% csrf_token %}
+            <input type="date" name="fd" class="form-control"><br>
+            <input type="date" name="td" class="form-control"><br>
+            <center><input type="submit" class="btn btn-danger btn-sm" value="SUBMIT"></center>
+        </form>
+    </div>
+    </div>
+    <div class="col-lg-1"></div>
+<div class="col-lg-7">
+    {% if a %}
+    <div style="overflow-y: scroll;height:400px;">
+<table class="table table-bordered table-hover table-danger">
+    <tr>
+        <th>CATEGORY</th>
+        <th>SUBCATEGORY</th>
+        <th>COMPANY</th>
+        <th>QUANTITY</th>
+        <th>DATE</th>
+        <th>PURCHASE AMOUNT</th>
+        <th>ADD BY</th>
+    </tr>
+    {% for i in a %}
+    <tr>
+        <td>{{i.0}}</td>
+        <td>{{i.1}}</td>
+        <td>{{i.2}}</td>
+        <td>{{i.3}}</td>
+        <td>{{i.4}}</td>
+        <td>{{i.5}}</td>
+        <td>{{i.6}}</td>
+   </tr>
+    {% endfor %}
+    </table>
+</div>
+    {% endif %}
+</div>
+<div class="col-lg-1"></div>
+</div>
+</body>
+{% endblock %}

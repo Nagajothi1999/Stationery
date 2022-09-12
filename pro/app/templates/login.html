@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/css/transparent.css" type="text/css">
+ 
+  jQuery CDN Link
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Transparent form</title>
+</head>
+ 
+<body style="background-image:url('static/images/image.jpg')">
+  <div class="container">
+    <div class="form">
+      <div class="btn">
+        <center><button class="loginBtn">LOG IN</button></center>
+      </div>
+      <form class="signUp" method="post">
+        {% csrf_token %}
+        <div class="formGroup">
+          <input type="text" id="userName" name="un" placeholder="User Name" autocomplete="off">
+        </div>
+        <div class="formGroup">
+          <input type="password" id="password" name="pas" placeholder="Password" required autocomplete="off">
+        </div>
+        <div class="formGroup">
+          <center><input type="submit" class="btn2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></center>
+        </div>
+        <center><a href="password" style="color:black;">forgot password</a></center>
+        <h5 style="color:red;text-align:center;">{{msg}}</h5>
+        <h5 style="color:red;text-align:center;">{{msg1}}</h5>
+      </form>
+    
+    </div>
+  </div>
+</body>
+{% endblock %}

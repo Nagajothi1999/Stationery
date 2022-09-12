@@ -1,0 +1,22 @@
+{% extends 'admin/ahome.html' %}
+{% block content %}
+<body style="background-image:url(static/images/admin.jpg); background-size:cover">
+
+<table class="table table-bordered table-hover" width="100%">
+    <tr>
+        <th>STAFF ID</th>
+        <th>USERNAME</th>
+        <th>ACTIVE</th>
+        <th>DEACTIVE</th>
+    </tr>
+    {% for i in a %}
+    <tr>
+        <td>{{i.0}}</td>
+        <td>{{i.7}}</td>
+        <td><a href="/active?sid={{i.7}}"><button type="button" class="btn btn-info">ACTIVE</button></td></a>
+        <td><a href="/deact?sid={{i.7}}"><button type="button" class="btn btn-info">DEACTIVE</button></td></a>
+    </tr>
+    {% endfor %}
+    </table>
+</body>
+{% endblock %}

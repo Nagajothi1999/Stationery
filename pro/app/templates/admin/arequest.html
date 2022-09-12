@@ -1,0 +1,32 @@
+{% extends 'admin/ahome.html' %}
+{% block content %}<br><br><br><br>
+<body style="background-image:url(static/images/staff1.jpg); background-size:cover">
+
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <U><h1 style="text-align: center;color: rgb(239, 231, 247);">LEAVE REQUEST</h1></U><br>
+        {% if a %}
+<table class="table table-bordered table-hover table-danger" width="100%">
+    <tr>
+        <th>STAFF ID</th>
+        <th>NAME</th>
+        <th>TOTAL DAYS</th>
+        <th>ACTION</th>
+    </tr>
+    {% for i in a %}
+    <tr>
+        <td>{{i.1}}</td>
+        <td>{{i.2}}</td>
+        <td>{{i.5}}</td>
+        <td><a href="/acpt?cid={{i.1}}"><input type="submit" class="btn btn-info btn-sm" name="b1" value="DETAILS"></a></td>
+    </tr>   
+    {% endfor %}
+    </table>{% endif %}<br><br><br>
+    <center><h1 style="color:white"><marquee dir="ltr" scrollamount="20">{{msg}}</h1></marquee></center>
+
+</div>
+    <div class="col-lg-3"></div>
+</div>
+</body>
+{% endblock %}

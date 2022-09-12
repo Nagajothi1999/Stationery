@@ -1,0 +1,60 @@
+{% extends 'admin/ahome.html' %}
+{% block content %} <br>
+<style>
+    .main-block {
+      max-width: 380px; 
+      min-height: 200px; 
+      padding: 10px 0;
+      margin: auto;
+      border-radius: 5px; 
+      border: solid 1px #ccc;
+      box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+      background: #697ef0; 
+      }
+      form {
+      margin: 0 30px;
+      }
+</style>
+<body style="background-image:url(static/images/logstatus.jpg); background-size:cover">
+<div class="row">
+    <u><h1 style="text-align: center;color: rgb(226, 43, 52);">STAFF LOG STATUS</h1><br></u>
+
+    <div class="col-lg-1"></div>
+
+    <div class="col-lg-2"><br><br><br>
+        <div class="main-block" >
+        <h4 class="text-center">Select Date</h4>
+        <form method="post">
+            {% csrf_token %}
+            <input type="date" name="fd" class="form-control"><br>
+            <input type="date" name="td" class="form-control"><br>
+            <center><input type="submit" class="btn btn-danger btn-sm" value="SUBMIT"></center>
+        </form>
+    </div>
+</div>
+<div class="col-lg-2"></div>
+
+<div class="col-lg-6">
+    {% if a %}
+    <div style="overflow:scroll;overflow-x: hidden;max-height:400px;">
+<table class="table table-bordered table-hover table-hover table-dark" style="text-align:center;">
+    <tr>
+        <th>NAME</th>
+        <th>LOGIN TIME</th>
+        <th>LOGOUT TIME</th>
+
+    </tr>
+    {% for i in a %}
+    <tr>
+        <td>{{i.1}}</td>
+        <td>{{i.3}}</td>
+        <td>{{i.4}}</td>
+   </tr>
+    {% endfor %}
+    </table>
+{% endif %}
+</div>
+</div>
+</div>
+</body>
+{% endblock %}

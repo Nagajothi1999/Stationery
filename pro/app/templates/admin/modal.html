@@ -1,0 +1,30 @@
+
+  <!-- Modal
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: rgb(0, 0, 0);">
+        <h3 class="modal-title" id="exampleModalLabel"><span style="color: red;">Stock Alert!!!</span></h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="background-color: rgb(233, 211, 16);">
+<h1>Total : {{k}}</h1>
+{% for i in oo %}
+{% for i2 in i %}
+<div class="container" style="border: solid 2px black ;">
+<p>Category : {{i2.1}}</p>
+<p>Sub-Category : {{i2.2}}</p>
+<p>Company : {{i2.3}}</p>
+<p><span style="color: red;">Remaining Quantity : {{i2.4}}</span></p>
+</div>
+{% endfor %}
+{% endfor %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+{% endblock %} -->

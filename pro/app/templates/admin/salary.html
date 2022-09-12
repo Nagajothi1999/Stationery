@@ -1,0 +1,56 @@
+{% extends 'admin/ahome.html' %}
+{% block content %}
+<body style="background-image:url(static/images/staff1.jpg); background-size:cover">
+
+        <div class="container py-5">
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-9 col-lg-7 col-xl-5">
+              <div class="card">
+                  <div class="card-title d-flex justify-content-between mb-0">
+                    <p class="text-muted mb-1"><center>Salary Slip</center></p>
+                  </div>
+                </div>
+                
+                <div class="rounded-bottom" style="background-color: rgb(185, 201, 223);">
+                  <div class="card-body">
+                    <p class="mb-4">Your payment details</p>
+                    <form method="post">
+                      {% csrf_token %}
+                      <div class="row mb-3">
+                        <div class="col-6">
+                        <label>Name</label>
+                      <input type="text" id="formControlLgXM8" class="form-control" name="nm" value="{{a.1}}">
+                    </div>
+                    
+                    <div class="col-6">
+                      <label>Date</label>
+                      <input type="date" id="formControlLgXM8" class="form-control" name="dt">
+                    </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                      <div class="col-6">
+                        <div class="form-outline">
+                          <label>Message</label>
+                          <textarea id="formControlLgExpk8" class="form-control" name="msg"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-outline">
+                          <label>Salary</label>
+                          <input type="text" id="formControlLgcvv8" class="form-control"name="sal" value="{{a.5}}" >
+                        </div>
+                      </div>
+                    </div>
+                    <center><input type="submit" value="Proceed" class="btn btn-info"></center>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="text-center">{{msg}}</p>
+          <p class="text-center">{{msg1}}</p>
+          
+</body>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'staff/shome.html'%}
+{% block content %}
+<body style="background-image:url(static/images/j2.jpg); background-size:cover">
+
+<div class="container py-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-9 col-lg-7 col-xl-5">
+      <div class="card">
+          <div class="card-title d-flex justify-content-between mb-0">
+            <p class="text-muted mb-1"><center>STOCK</center></p>
+          </div>
+        </div>
+        
+        <div class="rounded-bottom" style="background-color: #eee;">
+          <div class="card-body">
+            <p class="mb-4">ADD STOCK</p>
+            <form method="post">
+              {% csrf_token %}
+              <div class="row mb-3">
+                <div class="col-6">
+                <label>CATEGORY</label>
+               :<select name="cat" class="form-control">
+                  <option>Choose</option>
+                  {% for i in a %}
+                  <option value="{{i.0}}">{{i.1}}</option>
+                  {% endfor %}
+                </select>
+            </div>
+            
+            <div class="col-6">
+              <label>COMPANY</label>
+              <select name="com" class="form-control">
+                <option>Choose</option>
+                {% for i in a1 %}
+                <option value="{{i.0}}">{{i.1}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            </div>
+            
+            <div class="row mb-3">
+              <div class="col-6">
+                <div class="form-outline">
+                  <label>SUBCATEGORY</label>
+                  <select name="sub" class="form-control">
+                    <option>Choose</option>
+                    {% for i in a2 %}
+                    <option value="{{i.0}}">{{i.2}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-outline">
+                  <label> QUANTITY </label>
+                 <input type="text" name="qty" class="form-control">
+                </div>
+              </div>
+            </div>
+            <center><input type="submit" value="ADD" class="btn btn-success"></center>
+
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+  {{n}}
+{% endblock %}

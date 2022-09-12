@@ -1,0 +1,54 @@
+{% extends 'admin/ahome.html' %}
+{% block content %} <br>
+<style>
+  .main-block {
+    max-width: 380px; 
+    min-height: 100px; 
+    padding: 10px 0;
+    margin: auto;
+    border-radius: 5px; 
+    border: solid 1px #ccc;
+    box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+    background: #69f0b8; 
+    }
+    form {
+    margin: 0 30px;
+    }
+    table{text-align:center;}
+</style>
+<body style="background-image:url(static/images/stock.jpg); background-size:cover">
+  <u><h1 style="text-align: center;color: blueviolet;">SALES DETAILS</h1></u><br>
+
+<div class="row">
+  <div class="col-lg-1 col-md-1"></div>
+  <div class="col-lg-2">
+    <div class="main-block" >
+    <h4 class="text-center">Select Date</h4>
+    <form method="post">
+        {% csrf_token %}
+        <input type="date" name="dt" class="form-control"><br>
+        <center><input type="submit" class="btn btn-danger btn-sm" value="SUBMIT"></center>
+    </form>
+</div>
+</div>
+  <div class="col-lg-1 col-md-1"></div>
+    <div class="col-lg-7 col-md-7"> 
+      {% if a %}
+          <table class="table table-bordered table-hover table-dark">
+            <tr>
+                <th>DATE</th>
+                <th>AMOUNT</th>
+                <!-- <th>MORE</th> -->
+            </tr>
+          <tr>
+                <td>{{a.0}}</td>
+                <td>{{a.1}}</td>
+                <!-- <td><a href="/saledtf?cid={{a.0}}"><button type="button" class="btn btn-danger">click</button></a></td> -->
+            </tr></a>
+            </table> 
+          
+      {% endif %}
+        <div class="col-lg-1 col-md-1"></div>
+      </div>
+</body>    
+{% endblock %}

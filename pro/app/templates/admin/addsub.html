@@ -1,0 +1,97 @@
+{% extends 'admin/ahome.html' %}
+{% block content %}
+<head>
+<link href="static/css/cat.css" type="text/css" rel="stylesheet">
+<script>
+  function msg()
+  {
+    alert('DELETED')
+  }
+  function msg1()
+  {
+    alert('UPDATED')
+  }
+</script>
+</head>
+
+  <body style="background-image:url(static/images/admin.jpg); background-size:cover">
+
+<div class="row">
+<div class="col-lg-4">
+<div id="registration-form">
+	<div class='fieldset'>
+    <legend>Add Sub Category</legend>
+		<form  method="post" data-validate="parsley">
+      {% csrf_token %}
+			<div class='row'>
+        CATEGORY:<select name="cat" class="form-control">
+          <option>Choose</option>
+          {% for i in a %}
+          <option value="{{i.0}}">{{i.1}}</option>
+          {% endfor %}
+        </select>
+				<label for='firstname'>Sub Category Name</label>
+				<input type="text" placeholder="Subcategory" name='sub' required>
+			</div>
+			<div class='row'>
+				<label for="email">Price</label>
+				<input type="text" placeholder="Amount"  name='num' required>
+			</div>
+			<input type="submit" value="ADD" name="ad" >
+		</form>
+	</div>
+</div>
+</div>
+<div class="col-lg-5">
+  <u><h1 style="text-align: center;color: blueviolet;">CATEGORY LIST </h1></u><br>
+  <div style="overflow-y:scroll; max-height:350px">
+
+  <table class="table table-bordered table-hover table-dark">
+    <tr>
+        <th>ID</th>
+        <th>CATEGORY</th>
+        <th>SUBCATEGORY</th>
+        <th>AMOUNT</th>
+        <th>UPDATE</th>
+        <th>DELETE</th>
+       
+    </tr>
+    {% for i in b %}  
+    <tr>
+        <td>{{i.0}}</td>
+        <td>{{i.1}}</td>
+        <td>{{i.2}}</td>
+        <td>{{i.3}}</td>
+        <td><a href='/addsub?nid={{i.0}}'><input type="button" class="btn btn-info btn-sm" value="Edit"></a></td>
+        <td><a href='/delsub?nid={{i.0}}'><input type="button" class="btn btn-danger btn-sm" value="Delete" onclick="msg()"></a></td>
+   </tr>
+    {% endfor %}
+  </table>
+  </div>
+</div>
+<div class="col-lg-3">
+  {% if c %}
+  <div id="registration-form">
+    <div class='fieldset'>
+      <legend> Update Sub Category</legend>
+      <form  method="post">
+        {% csrf_token %}
+        <div class='row'>
+          <label for='firstname'>Sub Category Name</label>
+          <input type="text" name='usub' value="{{c.2}}" required>
+        </div>
+        <div class='row'>
+          <label for="email">Price</label>
+          <input type="text"  name='unum' value="{{c.3}}"required>
+        </div>
+        <input type="submit" value="ADD" name="uad">
+      </form>
+      
+    </div>
+  </div>
+  {% endif %}
+  </div>
+  </div>
+
+</body>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'admin/ahome.html' %}
+{% block content %} <br>
+<body style="background-image:url(static/images/stock.jpg); background-size:cover">
+  <style>
+    .main-block {
+      max-width: 380px; 
+      min-height: 100px; 
+      padding: 10px 0;
+      margin: auto;
+      border-radius: 5px; 
+      border: solid 1px #ccc;
+      box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+      background: #69f0b8; 
+      }
+      form {
+      margin: 0 30px;
+      }
+   </style>
+<div class="row">
+  <u><h1 style="text-align: center;color: blueviolet;">SALES REPORT</h1></u><br>
+
+  <div class="col-lg-1 col-md-1"></div>
+  <!-- <div class="col-lg-6 col-md-6">
+  </div>
+  <div class="col-lg-3 col-md-3"></div>
+</div> -->
+    <div class="col-lg-2 col-md-2">
+      <div class="main-block" >
+    <form method="post">
+        {% csrf_token %}
+          SELECT STAFF<select name="sf"  class="form-control">
+            <option>choose</option>
+            {% for i in s %}
+            <option value="{{i.7}}">{{i.1}}</option>
+            {% endfor %}
+          </select>
+          DATE:<input type="date" name="dt" class="form-control" class="form-control"><br>
+        <center><input type="submit" value="Submit" class="btn btn-success btn-sm"></center>
+      </form>
+        </div>
+    </div>
+          <div class="col-lg-1 col-md-1"></div>
+         
+        <div class="col-lg-7 col-md-7"><br>
+{% if a %}
+          <table class="table table-bordered table-hover table-danger table-striped" style="text-align:center">
+            <tr>
+                <th>CATEGORY</th>
+                <th>SUBCATEGORY</th>
+                <th>COMPANY</th>
+                <th>QUANTITY</th>
+                <th>AMOUNT</th>
+            </tr>
+            {% for i in a %}
+            <tr>
+                <td>{{i.0}}</td>
+                <td>{{i.1}}</td>
+                <td>{{i.2}}</td>
+                <td>{{i.3}}</td>
+                <td>{{i.4}}</td>
+            </tr>
+            {% endfor %}
+            </table>
+        {% endif %}
+        </div>
+        <div class="col-lg-1 col-md-1"></div>
+      </div>
+
+</body>
+{% endblock %}

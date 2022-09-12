@@ -1,0 +1,21 @@
+{% extends 'admin/ahome.html' %}
+{% block content %} <br>
+<body style="background-image:url(static/images/admin.jpg); background-size:cover">
+    <h1 style="text-align: center;color: #8a2be2;">CUSTOMER FEEDBACK</h1><br>
+
+<div class="row">
+    {% for i in a %}
+    <div class="col-lg-3">
+    <div class="card" style="width:20rem;" >
+        <img class="card-image-top" src="static/pics/{{i.2}}" height="200">
+        <div class="card-body" style="background-color:rgb(151, 144, 144);">
+        <h5 class="card-text">Date: {{i.0}}</h5>
+        <h5 class="card-text">Name: {{i.1}}</h5>
+        <textarea name="fb" class="form-control" disabled>{{i.4}}</textarea><br>
+      </div>
+      </div>
+    </div>
+      {% endfor %}
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'admin/ahome.html' %}
+{% block content %}
+<style>
+  h1{color:blue;font-family: Arial, Helvetica, sans-serif;}
+</style>
+<body style="background-image:url(static/images/admin.jpg); background-size:cover">
+  <u><h1 style="text-align: center;color: blueviolet;">CUSTOMERS LIST </h1></u><br>
+
+<div class="row">
+  {% for i in a %}
+      <div class="col-lg-4">
+        <div style="border:2px solid red; background-color: azure;" class="rounded">
+      <img src="static/pics/{{i.7}}" width="100" height="100" class="rounded-pill">
+      <h1>Name:{{i.1}}</h1>
+      <h4>Address:{{i.2}}</h4>
+      <h5>phone:{{i.3}}</h5>
+      </div><br><br>
+    </div>
+  {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'staff/shome.html' %}
+{% block content %} <br><br>
+<body style="background-image:url(static/images/j2.jpg); background-size:cover">
+
+<div class="row">
+    <div class="col-lg-4 col-md-4"></div>
+    <div class="col-lg-4 col-md-4">
+      <div class="card" style="width: 25rem;">
+        <img class="card-img-top" src="static/images/i1.png" alt="Card image cap" height="200">
+        <div class="card-body" >
+          <h5 class="card-title">Sale Product</h5>
+          <form method="post">
+            {% csrf_token %}
+          <select name="cus" class="form-control">
+            <option>Choose</option>
+            {% for i in a %}
+            <option value="{{i.0}}">{{i.1}}</option>
+            {% endfor %}
+        </select><br>
+        <center><input type="submit" name="sub" value="CHOOSE" class="btn btn-success btn-sm"></center>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4"></div>
+</div>
+</body>
+{% endblock %}
+    

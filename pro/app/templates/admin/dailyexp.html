@@ -1,0 +1,58 @@
+{% extends 'admin/ahome.html' %}
+{% block content %} <br>
+<body style="background-image:url(static/images/stock.jpg); background-size:cover">
+ <style>
+    .main-block {
+        max-width: 380px; 
+        min-height: 100px; 
+        padding: 10px 0;
+        margin: auto;
+        border-radius: 5px; 
+        border: solid 1px #ccc;
+        box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+        background: #69f0b8; 
+        }
+        form {
+        margin: 0 30px;
+        }
+    </style>
+<div class="row">
+    <u><h1 style="text-align: center;color: blueviolet;">DAILY EXPENSE AND INCOME </h1></u><br>
+
+    <div class="col-lg-1 col-md-1"></div>
+    <div class="col-lg-2 col-md-2"><br><br>
+      <div class="main-block" >
+        <form method="post">
+            {% csrf_token %}
+            SELECT DATE:<input type="date" name="dt" class="form-control"><br>
+            <center><input type="submit" class="btn btn-info" value="SUBMIT"></center>
+        </form><br>
+    </div>
+    </div>
+    <div class="col-lg-1 col-md-1"></div>
+    <div class="col-lg-7"><br><br>
+        {% if a %}
+<table class="table table-bordered table-hover table-danger" style="text-align:center" width="100%">
+    <tr>
+        <th>INCOME</th>
+        <th colspan="2">EXPENSE</th>
+    </tr>
+    <tr>
+        <th>DAILY INCOME</th>
+        <th>SALARY</th>
+        <th>PURCHASE</th>
+   </tr>
+   {% for i in a %}
+   <tr>
+    <th>{{a.0}}</th>
+    <th>{{b.0}}</th>
+    <th>{{c.0}}</th>
+   </tr>
+   {% endfor %}
+    </table>
+    {% endif %}
+</div>
+<div class="col-lg-1"></div>
+</div>
+</body>
+{% endblock %}

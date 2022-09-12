@@ -1,0 +1,49 @@
+{% extends 'admin/ahome.html' %}
+{% block content %} <br>
+<body style="background-image:url(static/images/admin.jpg); background-size:cover">
+
+<div class="row">
+  <div class="col-lg-3 col-md-3"></div>
+  <div class="col-lg-6 col-md-6">
+    <u><h1 style="text-align: center;color: blueviolet;">SALES REPORT</h1></u><br>
+  </div>
+  <div class="col-lg-3 col-md-3"></div>
+</div>
+<div class="row">
+    <div class="col-lg-5 col-md-5"></div>
+    <div class="col-lg-2 col-md-2">
+    <form method="post">
+        {% csrf_token %}
+          SELECT STAFF<select name="sf"  class="form-control">
+            <option>choose</option>
+            {% for i in s %}
+            <option value="{{i.7}}">{{i.1}}</option>
+            {% endfor %}
+          </select>
+          DATE:<input type="date" name="dt" class="form-control" class="form-control"><br>
+          <center><input type="submit" value="Submit" class="btn btn-success"></center>
+          </form><br>
+        </div>
+        <div class="col-lg-5 col-md-5"></div>
+      </div><br>
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <table class="table table-bordered table-hover table-danger table-striped" style="text-align:center">
+            <tr>
+                <th>DATE</th>
+                <th>STAFF NAME</th>
+                <th>AMOUNT</th>
+                <th>DETAILS</th>
+            </tr>
+            <tr>
+                <td>{{a.0}}</td>
+                <td>{{a.1}}</td>
+                <td>{{a.2}}</td>
+                <td><a href="/salert2?cid={{i.0}}">CLICK</a></td>
+            </tr>
+            </table>
+        </div>
+        <div class="col-lg-6 col-md-6"></div>
+      </div>
+</body>
+{% endblock %}

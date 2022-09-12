@@ -1,0 +1,112 @@
+{% extends 'staff/shome.html' %}
+{% block content %}
+<head>
+  <script>
+        window.onload=function(){
+          var fileupload = document.getElementById("upl");
+          var filePath = document.getElementById("filepath");
+          var image = document.getElementById("imageupl");
+          image.onclick= function() {
+            fileupload.click();
+          };
+          fileupload.onchange = function(){
+            var filename = fileupload.value.split('\\')[fileupload.value.split('\\').length-1];
+          };
+        };
+    function msg1()
+    {
+        document.getElementById('f1').style="display:block";
+        document.getElementById('f2').style="display:none";
+        document.getElementById('f3').style="display:none";
+
+        
+    }
+    function msg2()
+    {
+        document.getElementById('f2').style="display:block";
+        document.getElementById('f1').style="display:none";
+        document.getElementById('f3').style="display:none";
+
+    }
+    function msg3()
+    {
+        document.getElementById('f3').style="display:block";
+        document.getElementById('f1').style="display:none";
+        document.getElementById('f2').style="display:none";
+
+    }
+    
+    </script>
+  <style>
+    h3{color:rgb(13, 13, 88)}
+  </style>
+</head>
+<div class="container"> 
+ <div class="row">
+  <div class="col-lg-3"></div>
+  <div class="col-lg-6">
+    <table class="table-bordered">
+      <tr>
+        <td><button  type="button" class="btn btn-info" onclick="msg1()" >Update Photo</button></td>
+        <td><button  type="button" class="btn btn-success" onclick="msg2()" >Update Personal Details</button></td>
+        <td><button  type="button" class="btn btn-warning" onclick="msg3()" >Change Password</button></td> 
+      </tr>
+    </table>
+  </div>
+    <div class="col-lg-3"></div>
+  </div><br><br>
+  <div class="row">
+    <div class="col-lg-4"></div>
+
+    <div class="col-lg-4">
+    <form method="post" id="f1" enctype="multipart/form-data">
+      {% csrf_token %}
+    <div  class="card" style="width:20rem">
+    <img src="static/pics/{{a.9}}" name="up" class=card-img-top  id="imageupl">
+    <center><h1 class="card-title">{{a.1}}</h1></center>
+    <center><p class="card-text">Click on the Image to change</p></center>
+    <input type="file" name="up" class="form-control" style="display:none" id="upl"><br>
+    <center><input type="submit" name="pic" value="SUBMIT" class="btn btn-warning text-center"></center>
+  </form>
+    </div>
+    <form id="f2" method="post"enctype="multipart/form-data" style="display:none;">
+        {% csrf_token %}
+        <div class="form-group">
+          <label>NAME</label>
+          <input type="text" name="nm" value="{{a.1}}" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label >Address</label>
+            <textarea name="ad" class="form-control" id="exampleInputaddress">{{a.2}} </textarea>
+          </div>
+       
+        <div class="form-group">
+            <label >PHONE NUMBER</label>
+            <input type="text" name="ph" value="{{a.4}}" class="form-control" >
+        </div>
+        <center><input  type="submit" name="det" class="btn btn-warning text-center"></center>
+        </form>
+
+        <form id="f3" method="post"enctype="multipart/form-data" style="display: none;">
+          {% csrf_token %}
+          <div class="form-group">
+            <label>current Password</label>
+            <input type="password" name="opas" class="form-control">
+        </div>
+       
+        <div class="form-group">
+          <label>New Password</label>
+          <input type="password" name="npas" class="form-control">
+      </div>
+      <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" name="cpas" class="form-control">
+      </div>
+      <center><input  type="submit" name="pas" class="btn btn-warning text-center"></center>
+      <div>{{msg}}</div>
+    </form>
+    </div> 
+  <div class="col-lg-4"></div>
+</div>
+{% endblock %}

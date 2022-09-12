@@ -1,0 +1,33 @@
+{% extends 'admin/ahome.html' %}
+{% block content %}
+<br>
+<style>
+    table{text-align: center;}
+</style>
+<body style="background-image:url(static/images/staff1.jpg); background-size:cover">
+
+<div class="row">
+<div class="col-lg-3"></div>
+<div class="col-lg-6">
+    <h1 style="text-align: center;color: blueviolet;">SALARY</h1><br>
+    <table class="table table-bordered table-hover table-striped table-danger">
+    <tr>
+        <th>STAFF ID</th>
+        <th>NAME</th>
+        <th>PAY SALARY</th>
+        <th>SALARY HIKE</th>
+    </tr>
+    {% for i in a %}
+    <tr>
+        <td>{{i.0}}</td>
+        <td>{{i.1}}</td>
+        <td><a href="/salary?sid={{i.0}}"><button type="button" class="btn btn-info btn-sm">Paysalary</button></td></a>
+        <td><a href="/approval?sid={{i.0}}"><button type="button" class="btn btn-info btn-sm">MORE</button></td></a>
+    </tr>
+    {% endfor %}
+    </table>
+</div>
+    <div class="col-lg-3"></div>
+</div>
+</body>
+{% endblock %}

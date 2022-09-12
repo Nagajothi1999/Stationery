@@ -1,0 +1,37 @@
+{% extends 'admin/ahome.html '%}
+{% block content %}
+<br><br>
+<body style="background-image:url(static/images/admin.jpg); background-size:cover">
+
+<div class="row">
+    <div class="col-lg-3 col-md-3"></div>
+
+    <div class="col-lg-6 col-md-6">
+    <u><h1 style="text-align: center;color: blueviolet;">BILL DETAILS</h1></u><br>
+
+        <table class="table table-bordered table-hover table-striped table-danger" width="100%">
+            <tr>
+                <th>BILL NO</th>
+                <th>DATE</th>
+                <th>CUSTOMER ID</th>
+                <th>AMOUNT</th>
+                <th>ADDBY</th>
+                <th>VIEW BILL</th>
+            </tr>
+            {% for i in a %}
+            <tr>
+                <td>{{i.0}}</td>
+                <td>{{i.1}}</td>
+                <td>{{i.2}}</td>
+                <td>{{i.3}}</td>
+                <td>{{i.5}}</td>
+                <td><a href="/showbill?nid={{i.0}}"><button type="button" class="btn btn-info">CLICK</button></td></a>
+            </tr>
+            {% endfor %}
+            </table>
+    </div>
+    <div class="col-lg-3 col-md-3"></div>
+</div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'customer/uhome.html' %}
+{% block content %}
+<br><br>
+<body style="background-image:url(static/images/j1.webp); background-size:cover">
+<div class="row">
+    <div class="col-lg-3 col-md-3"></div>
+    <div class="col-lg-6 col-md-6">
+        <U><h1 style="text-align: center;color: blueviolet;">PRODUCTS</h1><br></U>
+        <table class="table table-bordered table-hover table-danger" width="100%" style="text-align: center;">
+            <tr>
+                <th>CATEGORY</th>
+                <th>SUBCATEGORY</th>
+                <th>COMPANY</th>
+            </tr>
+            {% for i in a %}
+            <tr>
+                <td>{{i.0}}</td>
+                <td>{{i.1}}</td>
+                <td>{{i.2}}</td>
+                
+            </tr>
+            {% endfor %}
+            </table>
+      </div>
+      <div class="col-lg-3 col-md-3"></div>
+</div>
+</body>
+{% endblock %}

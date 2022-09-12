@@ -1,0 +1,38 @@
+{% extends 'staff/shome.html' %}
+{% block content %}
+<body style="background-image:url(static/images/j2.jpg); background-size:cover">
+
+    <section class="h-100 gradient-custom-2">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col col-lg-9 col-xl-7">
+            <div class="card">
+              <div class="rounded-top text-white d-flex flex-row" style="background-image:url('static/images/back1.jpg'); height:200px;">
+                <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                  <img src="static/pics/{{a.9}}" height="140" width="150" class="rounded-pill">
+               <center><a href="supdate"><button type="button" class="btn btn-danger" style="z-index:1;color: antiquewhite;">Edit profile</button></center></a>
+                </div>
+                <div class="ms-3" style="margin-top: 130px;">
+                  <h5>{{a.1}}</h5>
+                  <p></p>
+                </div>
+              </div>
+              <div class="card-body p-4 text-black">
+                <div class="mb-5">
+                  <b><p class="lead fw-normal mb-1">Details</p></b>
+                  <div class="p-4" style="background-color: #b0b5bb;">
+                   <b><p> Address: {{a.2}}</p></b>
+                   <b><p> Phone: {{a.4}}</p></b>
+                   <b><p> Status :{{b}}</p></b>
+                  </div>
+                </div>
+               
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+</body>
+{% endblock %}

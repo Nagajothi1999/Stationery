@@ -1,0 +1,36 @@
+{% extends 'admin/ahome.html' %}
+{% block content %}
+<head>
+    <style>
+        .table{text-align: center;}
+        .th{color:brown}
+    </style>
+</head>
+<br>
+<body style="background-image:url(static/images/staff1.jpg); background-size:cover">
+
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <h1 style="text-align:center;color:rgb(241, 245, 6)">STAFF DETAILS</h1><br>
+        <div style="overflow-y:scroll;max-height:500px">
+<table class="table table-bordered table-hover table-striped table-danger">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">NAME</th>
+        <th scope="col">MORE DETAILS</th>
+    </tr>
+</thead>
+    {% for i in a %}
+    <tr>
+        <td>{{i.1}}</td>
+        <td><a href="/viewstaff2?aid={{i.0}}"><button type="button" class="btn btn-info btn-sm">DETAILS</button></td></a>
+    </tr>
+    {% endfor %}
+    </table>
+</div>
+</div>
+<div class="col-lg-3"></div>
+</div>
+</body>
+{% endblock %}

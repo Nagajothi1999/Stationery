@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="static/images/favicon.png" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+
+  <title>Stationery</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
+  <!-- font awesome style -->
+  <link href="static/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="static/css/responsive.css" rel="stylesheet" />
+<style>
+  #more{display:none;}
+</style>
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="static/index.html">
+            <span>
+              Bostorek
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link pl-lg-0" href="main">Home </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="about"> About <span class="sr-only">(current)</span> </a>
+              </li>
+             
+              <li class="nav-item">
+                <a class="nav-link" href="contact">Contact Us</a>
+              </li>
+            </ul>
+            <from class="search_form">
+              <input type="text" class="form-control" placeholder="Search here...">
+              <button class="" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </from>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container ">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="static/images/about-img.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About Our Store
+              </h2>
+            </div>
+            <p>
+              Originally, the term 'stationery' referred to all products sold by a stationer, whose name indicated that 
+              his book shop was on a fixed spot. This was usually somewhere near a university, and permanent, while 
+              medieval trading was mainly carried on by itinerant peddlers (including chapmen, who sold books) and 
+              others (such as farmers and craftsmen) at markets and fairs.<span id="dots">...</span><span id="more"> It was a unique term used between the 
+              13th and 15th centuries in the manuscript culture. Stationers' shops were places where books were bound,
+               copied, and published. These shops often loaned books to nearby-university students for a fee</span></p>
+               <button onclick="myFunction()" id="myBtn" class="btn btn-info btn-sm">Read more</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    function myFunction() {
+      var dots = document.getElementById("dots");
+      var moreText = document.getElementById("more");
+      var btnText = document.getElementById("myBtn");
+    
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more"; 
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less"; 
+        moreText.style.display = "inline";
+      }
+    }
+    </script>
+
+  <!-- end about section -->
+
+  <!-- info section -->
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="info_detail">
+            <h4>
+              About Us
+            </h4>
+            <p>
+              Vitae aut explicabo fugit facere alias distinctio, exem commodi mollitia minusem dignissimos atque asperiores incidunt vel voluptate iste
+            </p>
+            <div class="info_social">
+              <a href="static/">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="static/">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="static/">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="static/">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="static/">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="static/">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="static/">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  demo@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="info_contact">
+            <h4>
+              Newsletter
+            </h4>
+            <form action="#">
+              <input type="text" placeholder="Enter email" />
+              <button type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="map_container">
+            <div class="map">
+              <div id="googleMap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="static/https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="static/js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="static/js/bootstrap.js"></script>
+  <!-- custom js -->
+  <script src="static/js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="static/https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>

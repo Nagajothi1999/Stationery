@@ -1,0 +1,25 @@
+{% extends 'customer/uhome.html' %}
+{% block content %}
+<br>
+<body style="background-image:url(static/images/j1.webp); background-size:cover">
+
+<div class="row">
+  <div class="col-lg-4 col-md-4"></div>
+  <div class="col-lg-4 col-md-4">
+<div class="card" style="width:23rem;" >
+  <h5 style="text-align:center;">FEEDBACK FORM</h5>
+  <img class="card-image-top" src="static/images/feed.webp">
+  <div class="card-body" style="background-color:rgb(151, 144, 144);">
+    <form method="post">
+    {% csrf_token %}
+  ID<input type="text" name="cus" class="form-control" value="{{i.0}}">
+  FEEDBACK<textarea name="fb" class="form-control"></textarea><br>
+  <center><input type="submit" value="SUBMIT" class="btn btn-success"></center>
+</form>
+</div>
+</div>
+  </div>
+  <div class="col-lg-4 col-md-4"></div>
+</div>
+</body>
+{% endblock %}

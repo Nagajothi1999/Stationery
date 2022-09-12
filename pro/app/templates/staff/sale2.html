@@ -1,0 +1,169 @@
+{% extends 'staff/shome.html'%}
+{% block content %}
+    <title>Donation Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, textarea, label { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin:0;
+      font-size: 60px;
+      color: #fff;
+      z-index: 2;
+      line-height: 83px;
+      top:30px;
+      }
+
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+      form {
+      width: 75%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 8px #006622; 
+      }
+    
+      input, select, textarea {
+      margin-bottom: 0px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      .item span {
+      color: red;
+      }
+      
+      .colums {
+      display:flex;
+      justify-content:space-between;
+      flex-direction:row;
+      flex-wrap:wrap;
+      }
+      .colums div {
+      width:48%;
+      }
+    
+
+      
+      .question span {
+      margin-left: 30px;
+      }
+      .question-answer label {
+      display: block;
+      }
+    
+      .flax {
+      display:flex;
+      justify-content:space-around;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+    </style>
+ </head>
+ <br>
+ <body style="background-image:url(static/images/j2.jpg); background-size:cover">
+
+    <div class="row">
+        <div class="col-lg-5 col-md-5">
+            <form method="post">
+                {% csrf_token %}
+                    BILL NO:<input type="text" name="bill" value="{{data4.0}}" class="form-control">
+                    
+              Category
+                    <select name="cat"  class="form-control" >
+                      <option>Choose</option>
+                       {% for i in data1 %}
+                        <option value="{{i.0}}">{{i.1}}</option>
+                        {% endfor %}
+                    </select>
+              Company
+                    <select name="com"  class="form-control">
+                      <option>Choose</option>
+                        {% for i in data2 %}
+                        <option value="{{i.0}}">{{i.1}}</option>
+                        {% endfor %}
+                    </select>
+                Sub Category
+                      <select name="sub"  class="form-control">
+                      <option>Choose</option>
+                    {% for i in data3 %}
+                    <option value="{{i.0}}">{{i.2}}</option>
+                    {% endfor %}
+                  </select>
+               Quantity: <input type="num" name="qun" class="form-control">
+                Amount: <input type="num" name="amt" class="form-control"><br>
+                <center><input type="submit" class="btn btn-info" name="addpro"></center>
+            </form>
+        </div>
+
+        <!-- Temporary bill details -->
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-5">
+          <h4 style="text-align:center">BILL</h4>
+            <table id="t1" class="table table-danger" >
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Amount</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                {% for i in data7%}
+                <tbody>
+                  <tr>
+                    <th scope="row">{{i.1}}</th>
+                    <td>{{i.3}}</td>
+                    <td>{{i.6}}</td>
+                    <td>{{i.7}}</td>
+                    
+                    <td><a href="/delete?pid={{i.0}}&cid={{cid}}"><button type="submit" class="btn btn-warning">delete</button></a></td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+              </table>
+              <form method="post" style="width: fit-content;padding:0px;">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-warning" name="Total" value="TOTAL">
+              </form>
+              <div class="col-lg-1">total={{var.0}}</div>
+              <form method="post" style="width: fit-content;padding:0px;position:relative;left:400px;bottom:60px" >
+                {% csrf_token %}
+                <input type="submit" class="btn btn-warning" name="Proceed" value="PROCEED">
+              </form>
+              
+              <div class="col-lg-8"><h3 style="color:red">{{msg}}</h3></div>
+              
+        </div>
+    </div>
+ </body>
+{% endblock %}
